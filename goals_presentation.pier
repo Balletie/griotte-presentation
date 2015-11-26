@@ -1,0 +1,185 @@
+{
+    "title":"Griotte Code Review",
+    "subtitle":"Goals and ideas",
+    "author":"Skip Lentz",
+    "date":"\\today"
+}
+
+${slide:Introduction}$
+
+- New intern from TU Delft (''Pays-Bas'')
+-- Remotely co-mentored by Alberto Bachelli
+- Will work on Griotte Code Review tool with Martin
+
+${slide:Outline}$
+
+# Motivation for developing Griotte
+# The current state of Griotte
+#- Pharo client and web client
+#- Demo
+# Improvement of basic functionality (''must haves'')
+# Going forward (''should haves'')
+# Other ideas
+
+${slide:Motivation for developing Griotte (1)}$
+
+- Traditional code review tools show one big change.
+-- Ok for small commits ...
+-- ... but not for large ones.
+-- Where do changes come from?
+-- Takes too much time.
+- Having a code review tool integrated in Pharo.
+
+${slide:Motivation for developing Griotte (2)}$
+
+Basic concept of Griotte: ''groups'' of changes.
+
+- Put changes in ''groups''
+-- ''Refactor'' group
+-- ''Class modification'' group
+-- ''Method modification'' group
+-- ""''Formatting''"" group
+-- Maybe more kinds of groups?
+
+${slide:Current state (Pharo side)}$
+
+${columns}$
+
+${column:width=50}$
+
+Uses a modified Komitter, featuring:
+- Checking and unchecking changes
+- Selecting remotes
+- Adding comments to changes
+- Submitting review to server
+
+${column:width=50}$
+
++ Pharo Client >file://GCRKomitter.png|width=90+
+
+${endColumns}$
+
+${slide:Current state (Web side)}$
+
+${columns}$
+
+${column:width=50}$
+
+Made using Seaside. Features are:
+- Browse review by groups
+-- Addition
+-- Removals
+-- etc..
+- Comment on changes
+- Create reviews from within the web client
+
+${column:width=50}$
+
++ Web Interface>file://GCRWeb.png+
+
+${endColumns}$
+
+${slide:Improvements on basic functionality}$
+
+- UI usability.
+-- Seperate Monticello and Review.
+-- Lots of small things.
+-- Fix bugs.
+- Accepting reviews.
+- Rejecting reviews.
+- Downloading changes.
+- Uploading changes back after rejection.
+
+${slide:Improvement: Rejecting and Downloading changes}$
+
+A scenario:
+
+# Reviewer rejects a change on a review.
+# Someone can download and replay the changes.
+# This person continues working on the change.
+# Upload again to the review server for reviewing (next slide).
+
+${slide:Improvement: Uploading a continued review}$
+
+Unsure what should be done. Options are:
+
+- Create a completely new review.
+-- Old discussion is in original review (marked as rejected).
+-- Easy solution.
+- Add to the original review. Harder because:
+-- What to do with old comments/discussions?
+
+${slide:Going forward}$
+
+# Epicea
+# Better ''group summaries''
+# "Dogfooding"
+
+${slide:Going forward: Epicea}$
+
+- Using Epicea, we can group changes effectively.
+- Consider overlapping groups.
+
+${slide:Going forward: Epicea: overlapping groups}$
+
+Two modifications of a different kind. Using Epicea we can keep them seperated.
+
+${columns}$
+
+${column:width=40}$
+
+""Group: Method modification""
+
+[[[label=diff
+- ^ self doSomething: anObject
++ ^ self doSomething: aString
+]]]
+
+""Group: Refactoring""
+
+[[[label=diff
+- ^ self doSomething: aString
++ ^ self refactored: aString
+]]]
+
+${column:width=10}$
+
+||vs.
+
+${column:width=40}$
+
+""Group: Refactoring""
+
+[[[label=diff
+- ^ self doSomething: anObject
++ ^ self refactored: aString
+]]]
+
+${endColumns}$
+
+${slide:Going forward: "Dogfooding"}$
+
+${columns}$
+
+${column:width=40}$
+
+To allow for good feedback, we decide to:
+
+- Use Griotte to develop Griotte.
+- Use Griotte within the team.
+
+${column:width=60}$
+
++ definition >file://Dogfooding.png+
+
+${endColumns}$
+
+${slide:Other ideas}$
+
+- E-mail integration
+-- Send e-mail on reply
+- Add hooks?
+-- Hook on new review (server-side)
+-- Hook on new review (client-side)
+-- Accept/reject hook
+-- etc..
