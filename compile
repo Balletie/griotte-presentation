@@ -1,5 +1,3 @@
 #! /usr/bin/env bash
-~/.local/bin/pharo --headless ../../images/Pharo\ Contribution\ Jenkins-Pillar-#1226/Pharo\ Contribution\ Jenkins-Pillar-#1226.image eval `cat compile.st`
-git add main.tex
-git commit -m "Compiled using Pillar"
-git push
+~/.local/bin/pharo --headless ../../images/Pharo\ Contribution\ Jenkins-Pillar-#1364/Pharo\ Contribution\ Jenkins-Pillar-#1364.image eval `cat compile.st`
+pdflatex main.tex
