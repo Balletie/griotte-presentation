@@ -1,12 +1,17 @@
-% aspectratio = specifies a 16/9 slide ration
-% handout     = removes navigation bar
 \documentclass[aspectratio=169]{beamer}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\graphicspath{
+        {../}
+}
 
-\definecolor{mydarkred}{HTML}{a41313}
-\definecolor{codebox}{HTML}{e4e4e4}
+\usepackage{listings}
+% Source Code
+\usepackage{color}
 
-\mode<presentation>{
-  \usetheme{default}
+\usetheme{default}
 
 % Frame titles (inherits from titlelike)
 \setbeamerfont{frametitle}{size=\LARGE}
@@ -17,31 +22,7 @@
 \setbeamertemplate{enumerate items}[default]
 % Subitems are prefixed with a triangle
 \setbeamertemplate{itemize subitem}[triangle]
-}
 
-\usepackage[english]{babel}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{helvet}
-\usepackage{todonotes}
-\usepackage{environ}
-\let\actualtodo\todo
-\RenewEnviron{todo}{\actualtodo[inline]{\BODY}}
-
-\usepackage{graphicx}
-\graphicspath{
-        {../}
-}
-
-\usepackage[normalem]{ulem}
-
-\newcommand{\ct}[1]{{\ttfamily\textup{\colorbox{codebox}{#1}}}}
-\usepackage{listings}
-\usepackage{booktabs}
-\usepackage{textcomp}
-% Source Code
-\usepackage{color}
-\definecolor{source}{gray}{0.85}% my comment style
 \newcommand{\myCommentStyle}[1]{{\footnotesize\ttfamily\color{gray!100!white} #1}}
 % my string style
 \newcommand{\myStringStyle}[1]{{\footnotesize\ttfamily\color{violet!100!black} #1}}
@@ -68,7 +49,7 @@ showstringspaces=false,
 frame=single,
 aboveskip=1em, % automatic space before
 framerule=0pt,
-basicstyle=\footnotesize\ttfamily\color{black},
+basicstyle=\ttfamily\color{black},
 keywordstyle=\myKeywordStyle,% keyword style
 commentstyle=\myCommentStyle,% comment style
 frame=single,%
@@ -92,56 +73,6 @@ moredelim=[is][\scshape]{&lt;class&gt;}{&lt;/class&gt;},
 morekeywords={true,false,nil,self,super,thisContext},
 identifierstyle=\idstyle,
 }
-
-\makeatletter
-\newcommand*\idstyle[1]{%
-\expandafter\id@style\the\lst@token{#1}\relax%
-}
-\def\id@style#1#2\relax{%
-\ifnum\pdfstrcmp{#1}{\#}=0%
-% this is a symbol
-\mySymbolStyle{\the\lst@token}%
-\else%
-\edef\tempa{\uccode`#1}%
-\edef\tempb{`#1}%
-\ifnum\tempa=\tempb%
-% this is a global
-\myGlobalStyle{\the\lst@token}%
-\else%
-\the\lst@token%
-\fi%
-\fi%
-}
-\makeatother
-\newcommand{\lct}{\texttt}
-
-\lstnewenvironment{code}{%
- \lstset{%
- frame=single,
- framerule=0pt,
- mathescape=false
- }%
- \noindent%
- \minipage{\linewidth}%
-}{%
- \endminipage%
-}%
-\lstnewenvironment{codeWithLineNumbers}{%
- \lstset{%
- frame=single,
- framerule=0pt,
- mathescape=false,
- numbers=left
- }%
- \noindent%
- \minipage{\linewidth}%
-}{%
- \endminipage%
-}%
-
-\newenvironment{codeNonSmalltalk}
-{\begin{alltt}\ttfamily}
-{\end{alltt}\normalsize}
 
 \lstdefinelanguage{diff}{
   sensitive=true,
