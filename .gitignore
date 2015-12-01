@@ -31,3 +31,6 @@ main.pdf
 *.nav
 *.snm
 *.vrb
+*.fdb_latexmk
+*.fls
+auto
