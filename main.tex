@@ -11,17 +11,22 @@
 % Source Code
 \usepackage{color}
 
-\usetheme{default}
+\mode<presentation>
+{
+  \usetheme{default}
 
-% Frame titles (inherits from titlelike)
-\setbeamerfont{frametitle}{size=\LARGE}
+  \setbeamercovered{transparent}
 
-% Top-level itemize items are prefixed with a square
-\setbeamertemplate{itemize item}[square]
-% Top-level enumerate items are *not* in a shape
-\setbeamertemplate{enumerate items}[default]
-% Subitems are prefixed with a triangle
-\setbeamertemplate{itemize subitem}[triangle]
+  % Frame titles (inherits from titlelike)
+  \setbeamerfont{frametitle}{size=\LARGE}
+
+  % Top-level itemize items are prefixed with a square
+  \setbeamertemplate{itemize item}[square]
+  % Top-level enumerate items are *not* in a shape
+  \setbeamertemplate{enumerate items}[default]
+  % Subitems are prefixed with a triangle
+  \setbeamertemplate{itemize subitem}[triangle]
+}
 
 \newcommand{\myCommentStyle}[1]{{\footnotesize\ttfamily\color{gray!100!white} #1}}
 % my string style
