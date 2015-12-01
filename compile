@@ -1,3 +1,0 @@
-#! /usr/bin/env bash
-~/.local/bin/pharo --headless ../../images/Pharo\ Contribution\ Jenkins-Pillar-#1364/Pharo\ Contribution\ Jenkins-Pillar-#1364.image eval `cat compile.st`
-pdflatex main.tex
