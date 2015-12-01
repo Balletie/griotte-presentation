@@ -248,6 +248,18 @@ Code review is difficult:
 \end{diff}
 \end{onlyenv}
 
+\begin{onlyenv}<3>
+  For example:
+  \begin{enumerate}
+  \item method \texttt{foo}: First try for bug fix.
+  \item test run: Tests fail.
+  \item method \texttt{foo}: Debug and fix the bug.
+  \item test run: Tests succeed.
+  \end{enumerate}
+  When committing, the first change to \texttt{foo} is
+  \textit{shadowed}.
+\end{onlyenv}
+
 \begin{onlyenv}<4>
 \begin{itemize}
 \item "Fix bug"
