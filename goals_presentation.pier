@@ -34,7 +34,7 @@ ${columns}$
 
 ${column:width=50}$
 
-- Events monitored as they happen in the IDE
+- Events monitored as they happen in IDE
 - Stored in a log
 - Information that is normally discarded
 
