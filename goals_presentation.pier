@@ -21,12 +21,30 @@ ${slide:Outline}$
 
 ${slide:Problem Description}$
 
+${columns}$
+
+${column:width=50}$
+
 Code review is difficult:
 
 - Tangled commits
-- Line-based
+- Line-based view
 - Shadowed changes
 - Bad commit descriptions
+
+${column:width=50}$
+
+[[[
+
+- */public interface AdditiveExpr extends BinaryExpr
++ */
++public interface AdditiveExpr extends BinaryExpr
+ {
+-    String getOperator();
+ }
+]]]
+
+${endColumns}$
 
 ${slide:Fine-Grained IDE Events}$
 
