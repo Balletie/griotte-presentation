@@ -6,7 +6,6 @@
 \graphicspath{
         {../}
 }
-
 \usepackage{listings}
 % Source Code
 \usepackage{color}
@@ -19,7 +18,8 @@
 
   % Frame titles (inherits from titlelike)
   \setbeamerfont{frametitle}{size=\LARGE}
-
+  % Remove caption label
+  \setbeamertemplate{caption}{\raggedright\insertcaption\par}
   % Top-level itemize items are prefixed with a square
   \setbeamertemplate{itemize item}[square]
   % Top-level enumerate items are *not* in a shape
